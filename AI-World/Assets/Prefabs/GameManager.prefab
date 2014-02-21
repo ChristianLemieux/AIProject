@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 696.188477, y: 17.8996582, z: 623.554688}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07713b6dddff8f4297236e34633cbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alignmentWt: 10
+  separationWt: 5
+  cohesionWt: 5
+  avoidWt: 10
+  inBoundsWt: 1000
+  avoidDist: 1
+  separationDist: 5
+  numberOfvillagers: 6
+  numberOfWerewolves: 4
+  villagerPrefab: {fileID: 100000, guid: 2a7367400a4091943a81aa7de1f12d4e, type: 2}
+  werewolfPrefab: {fileID: 100000, guid: 7ce39c5707cc0fe43a1c5a72ff51a442, type: 2}
+  obstaclePrefab: {fileID: 100000, guid: 1d21ac63c8713cd4e99e806722ac6609, type: 2}
+  followerPrefab: {fileID: 100000, guid: 9d99f371aa2ebaa419715896a348cadd, type: 2}
+  centroidContainer: {fileID: 100000, guid: a64028a400e06434b943c6ba3ff735c4, type: 2}
+  VillageFollowers: []
+  WerewolfFollowers: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

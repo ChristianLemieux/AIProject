@@ -1,0 +1,22 @@
+print "Starting maya loading and fbx conversion \n";
+			
+if (`file -q -exists "D:/GitHub/demonsdungeon/AIProject/AI-World/Assets/free_pack/maya wolf.ma"`)
+{
+	file -o "D:/GitHub/demonsdungeon/AIProject/AI-World/Assets/free_pack/maya wolf.ma";
+	FBXExportEmbeddedTextures -v false;
+	// FBXExportHardEdges -v true;
+	FBXExportApplyConstantKeyReducer -v false;
+	FBXExportShowUI -v false;
+
+	print "Before fbx export\n";
+	FBXExport -f "D:/GitHub/demonsdungeon/AIProject/AI-World/Temp/ExportedFBXFile.fbx";
+	print "after fbx export\n";
+}
+else
+	print "Could not open Maya file.";
+
+system ("del \"D:\\GitHub\\demonsdungeon\\AIProject\\AI-World\\Temp\\CommandPipe\"");
+
+$donepipeKill = `fopen "D:/GitHub/demonsdungeon/AIProject/AI-World/Temp/SyncPipeKill" "w"`;
+fwrite $donepipeKill "Done";
+fclose $donepipeKill;
