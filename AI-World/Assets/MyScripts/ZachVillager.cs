@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ZachVillager : ZachSteering {
@@ -33,14 +33,19 @@ public class ZachVillager : ZachSteering {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Mayor") {
+			Debug.Log ("the mayor!");
 			Follow(other.gameObject);
 		} 
+		else if (other.tag == "Werewolf") {
+			//FLEE
+			Debug.Log("villager better run!");
+			Flee(other.gameObject);
+		}
 	}
 
-	void OnTriggerStay(Collider other)
-	{
-		if (other.tag == "Werewolf") {
-			//do stuff
+	void OnTriggerExit(Collider other){
+		if(other.tag == "Mayor"){
+			UnFollow();
 		}
 	}
 }

@@ -191,7 +191,18 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6500000, guid: 2bec47d0b5d6e4745ae6a725a6c9e610, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2bec47d0b5d6e4745ae6a725a6c9e610, type: 2}
+      propertyPath: m_TagString
+      value: Mayor
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6500000, guid: 2bec47d0b5d6e4745ae6a725a6c9e610, type: 2}
+    - {fileID: 11400004, guid: 2bec47d0b5d6e4745ae6a725a6c9e610, type: 2}
+    - {fileID: 14300000, guid: 2bec47d0b5d6e4745ae6a725a6c9e610, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2bec47d0b5d6e4745ae6a725a6c9e610, type: 2}
   m_RootGameObject: {fileID: 1752335241}
   m_IsPrefabParent: 0
@@ -745,6 +756,7 @@ GameObject:
   - 23: {fileID: 929940174}
   - 111: {fileID: 929940176}
   - 65: {fileID: 929940177}
+  - 54: {fileID: 929940178}
   m_Layer: 0
   m_Name: Cart
   m_TagString: Cart
@@ -821,6 +833,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.72880006, y: 1.73404598, z: 1.93153238}
   m_Center: {x: -.0178999901, y: .869423985, z: .256327599}
+--- !u!54 &929940178
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 929940172}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &967475507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,10 +1268,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1752335242}
   - 33: {fileID: 1752335244}
-  - 65: {fileID: 1752335245}
   - 23: {fileID: 1752335243}
   - 143: {fileID: 1752335246}
-  - 114: {fileID: 1752335247}
+  - 114: {fileID: 1752335245}
+  - 54: {fileID: 1752335247}
   m_Layer: 0
   m_Name: Mayor
   m_TagString: Mayor
@@ -1294,40 +1321,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 67230542}
   m_GameObject: {fileID: 1752335241}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1752335245
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500000, guid: 2bec47d0b5d6e4745ae6a725a6c9e610,
-    type: 2}
-  m_PrefabInternal: {fileID: 67230542}
-  m_GameObject: {fileID: 1752335241}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &1752335246
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 14300000, guid: 2bec47d0b5d6e4745ae6a725a6c9e610,
-    type: 2}
-  m_PrefabInternal: {fileID: 67230542}
-  m_GameObject: {fileID: 1752335241}
-  serializedVersion: 2
-  m_Height: .800000012
-  m_Radius: .5
-  m_SlopeLimit: 45
-  m_StepOffset: .300000012
-  m_SkinWidth: 1
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: .0500000007, z: 0}
---- !u!114 &1752335247
+--- !u!114 &1752335245
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400004, guid: 2bec47d0b5d6e4745ae6a725a6c9e610,
-    type: 2}
-  m_PrefabInternal: {fileID: 67230542}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1752335241}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1336,12 +1334,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: 100
   mass: 1
-  rotationSensitvity: 200
+  rotationSensitvity: 500
   scout: {fileID: 100000, guid: a64028a400e06434b943c6ba3ff735c4, type: 2}
-  lookAheadDist: 5
+  lookAheadDist: 2
   maxSpeed: 50
   maxForce: 15
   friction: .996999979
+--- !u!143 &1752335246
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752335241}
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: .5
+  m_SlopeLimit: 45
+  m_StepOffset: .300000012
+  m_SkinWidth: .0799999982
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1752335247
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752335241}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1794195400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1443,7 @@ GameObject:
   - 154: {fileID: 2020034916}
   m_Layer: 8
   m_Name: Terrain
-  m_TagString: Mayor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

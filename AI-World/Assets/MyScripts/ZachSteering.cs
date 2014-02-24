@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ZachSteering : MonoBehaviour {
@@ -27,6 +27,8 @@ public class ZachSteering : MonoBehaviour {
 
 	// Steer is called every frame by parent class.
 	protected void Steer () {
+		if(followTarget != null)
+			target = followTarget.transform.position;
 
 		if (hasTarget) {
 			//rotate towards target
@@ -45,6 +47,19 @@ public class ZachSteering : MonoBehaviour {
 				transform.position += transform.forward.normalized * velocity * Time.deltaTime;
 			}
 		}
+	}
+
+	protected void Flee(GameObject go){
+		Flee (go.transform.position);
+	}
+
+	protected void Flee(Vector3 pos){
+		Vector3 fleeDirection = transform.position - pos;
+		fleeDirection.Normalize();
+		Debug.Log ("In flee");
+		float dist = Vector3.Distance(transform.position, pos);
+		fleeDirection *= velocity;
+		target = fleeDirection;                    
 	}
 
 	//Wander a specific distance
@@ -99,7 +114,10 @@ public class ZachSteering : MonoBehaviour {
 	protected void Follow(GameObject go)
 	{
 		followTarget = go;
+		//target = go.transform.position;
 	}
 
-
+	protected void UnFollow(){
+		followTarget = null;
+	}
 }

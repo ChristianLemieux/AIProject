@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ZachWerewolf : ZachSteering {
@@ -38,7 +38,9 @@ public class ZachWerewolf : ZachSteering {
 		}
 		else if(other.tag == "Mayor")
 		{
-
+			//Flee
+			Debug.Log("RUNNNNNNNNN");
+			Flee(other.gameObject);
 		}
 	}
 }
